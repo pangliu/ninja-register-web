@@ -1,0 +1,92 @@
+.pageContainer {
+    background-image: url('../../assets/bg_download.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+
+.imgNinja {
+    background-image: url('../../assets/bg_ninja.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+    /* 固定在畫面某個位置 */
+    bottom: 0;
+    right: 0;
+    /* 對齊右側 */
+    width: 300px;
+    height: 300px;
+    /* 設定圖片寬度，可根據需求調整 */
+    margin-right: 10px;
+}
+
+.qrcodeContainer {
+    display: flex;
+    justify-content: center;
+    /* 垂直置中 */
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.qrcodeSvg {
+    height: 250px;
+    width: 250px;
+}
+
+.url {
+    text-decoration: none;
+    /* 去除網址的下劃線 */
+    color: #e94b42;
+    /* 網址文字顏色 */
+    font-size: 16px;
+    /* 設定字型大小 */
+    display: inline-block;
+}
+
+.warrningContainer {
+    background-color: rgba(0, 0, 0, 0.5);
+    /* 黑色，50% 透明度 */
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 20px 20px 20px;
+    justify-self: start;
+}
+
+.warrningTitle {
+    display: flex;
+    align-items: center;
+}
+
+.imgIcon {
+    background-image: url('../../assets/ic_warrning.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 35px;
+    height: 35px;
+}
+
+.textTitle {
+    color: #e94b42;
+    font-size: 30px;
+    margin-left: 20px;
+    font-weight: bold;
+}
+
+.textWhite {
+    color: white;
+    font-size: 20px;
+    margin-left: 0px;
+    font-weight: bold;
+}
+
+.textRed {
+    color: #e94b42;
+    font-size: 20px;
+    margin-left: 0px;
+    font-weight: bold;
+}
