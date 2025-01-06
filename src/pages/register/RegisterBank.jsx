@@ -6,7 +6,6 @@ import ApiService from '../../services/apiService';
 import ApiUrls from '../../services/apiUrls';
 import Select from 'react-select';
 import { OrbitProgress } from 'react-loading-indicators';
-import axios from 'axios';
 
 const apiService = new ApiService(ApiUrls.BASE_URL);
 
@@ -102,19 +101,6 @@ function RegisterBank() {
             alert('Registration failed. Please try again.', error);
         } finally {
             setIsLoading(false);
-        }
-    };
-
-    const fetchData = async () => {
-        try {
-            const response = await fetch('https://5ca6-18-178-159-1.ngrok-free.app/api/register');
-            if (!response.ok) {
-                throw new Error('網絡錯誤');
-            }
-            const data = await response.json();
-            console.log(data); // 印出 API 回傳資料
-        } catch (error) {
-            console.error('錯誤:', error);
         }
     };
 
