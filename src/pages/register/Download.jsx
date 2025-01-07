@@ -4,7 +4,7 @@ import { QRCodeSVG } from 'qrcode.react';
 import styles from '../register/Download.module.css'
 
 function Download() {
-    const url = 'https://github.com/pangliu/apk-download/raw/refs/heads/main/app-dev-release.apk'; // 這是你想顯示的 QR Code 資料
+    const url = 'https://github.com/pangliu/apk-download/raw/refs/heads/main/app-dev-debug.apk'; // 這是你想顯示的 QR Code 資料
     return (
         <div className={styles.pageContainer}>
             <div className={styles.imgNinja}></div>
