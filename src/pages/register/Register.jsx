@@ -108,7 +108,7 @@ function Register() {
                     </span>
                 </div>
                 <img className={styles.divider}></img>
-                <form
+                <form className={styles.formStyle}
                     onSubmit={handleSubmit}
                 >
                     <label className={styles.labelInput}>*Account</label>
