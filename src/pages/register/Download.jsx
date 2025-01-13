@@ -7,7 +7,7 @@ function Download() {
     const url = 'https://github.com/pangliu/apk-download/raw/refs/heads/main/app-dev-debug-010701.apk'; // 這是你想顯示的 QR Code 資料
     return (
         <div className={styles.pageContainer}>
-            <div className={styles.imgNinja}></div>
+            
             <div className={styles.qrcodeContainer}>
                 <a href={url} style={{ display: "inline-block" }}>
                     <QRCodeSVG
@@ -17,6 +17,9 @@ function Download() {
                         fgColor="#000000"
                     />
                 </a>
+                <div className={styles.divNinja}>
+                    <div className={styles.imgNinja}></div>
+                </div>
             </div>
             <div className={styles.warrningContainer}>
                 <div className={styles.warrningTitle}>
