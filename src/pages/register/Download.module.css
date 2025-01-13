@@ -56,8 +56,8 @@
     /* 黑色，50% 透明度 */
     position: fixed;
     bottom: 0;
-    padding: 0 20px;
-    width: calc(100% - 45px);
+    padding: 20px;
+    width: calc(100% - 40px);
     justify-self: start;
 }
 
