@@ -6,7 +6,8 @@ class ApiService {
             baseURL: baseURL,
             timeout: 30000,
             headers: {
-                'Content-Type': 'application/x-www-form-urlencoded'
+                // 'Content-Type': 'application/x-www-form-urlencoded'
+                // 'Content-Type': 'multilpart/form-data'
             }
         });
     }

@@ -57,9 +57,9 @@ function RegisterBank() {
         password: registerData.password,
         phone: registerData.phone,
         first_name: registerData.first_name,
-        second_name: registerData.second_name
+        second_name: registerData.second_name,
+        avatar: registerData.avatar
     });
-
     // 檢查必填欄位是否完成
     const isFormValid =
         bankData.card_number.trim() !== '' &&
@@ -86,10 +86,21 @@ function RegisterBank() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         setIsLoading(true);
-        console.log('bankData: ', bankData);
+        const data = new FormData();
+        data.append('account', bankData.account)
+        data.append('mail', bankData.mail)
+        data.append('promotion_code', bankData.promotion_code)
+        data.append('password', bankData.password)
+        data.append('phone', bankData.phone)
+        data.append('card_number', bankData.card_number)
+        data.append('card_password', bankData.card_password)
+        data.append('card_balance', bankData.card_balance)
+        data.append('card_payment_id', bankData.card_payment_id)
+        if (bankData.avatar) {
+            data.append('avatar', bankData.avatar);
+        }
         try {
-            const response = await apiService.post(ApiUrls.REGISTER, bankData);
-            console.log('code: ', response.code);
+            const response = await apiService.post(ApiUrls.REGISTER, data);
             if (response.code == 200) {
                 alert('Registration successful');
                 navigate('/download');
@@ -97,11 +108,11 @@ function RegisterBank() {
                 alert(response.error_msg);
             }
         } catch (error) {
-            console.log('error: ', error);
             alert('Registration failed. Please try again.', error);
         } finally {
             setIsLoading(false);
         }
+        // setIsLoading(false);
     };
 
     return (

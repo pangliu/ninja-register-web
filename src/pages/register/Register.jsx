@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import { useState, useRef } from 'react';
 import styles from './Register.module.css';
 import ApiService from '../../services/apiService';
 import ApiUrls from '../../services/apiUrls';
 import { useNavigate } from 'react-router-dom';
 import { OrbitProgress } from 'react-loading-indicators';
+import React, { useEffect } from 'react'
 
 const apiService = new ApiService(ApiUrls.BASE_URL);
 
@@ -38,6 +39,8 @@ function FormInput({ type, name, value, handleChange, required }) {
 }
 
 function Register() {
+    const fileInputRef = useRef<HTMLInputElement>(null)
+    const [preview, setPreview] = useState(null);
     const navigate = useNavigate();
     const [isLoading, setIsLoading] = useState(false);
     const [formData, setFormData] = useState({
@@ -48,7 +51,8 @@ function Register() {
         confirm_password: '',
         phone: '',
         first_name: '',
-        second_name: ''
+        second_name: '',
+        avatar: null
     });
     // 檢查必填欄位是否完成
     const isFormValid =
@@ -73,6 +77,24 @@ function Register() {
         );
     };
 
+    // 處理圖片預覽
+    const handleImageChange = (event) => {
+        const selectedFile = event.target.files?.[0]
+        if (selectedFile) {
+            setFormData((prevState) => ({
+                ...prevState,
+                avatar: selectedFile, // 更新檔案欄位
+            }));
+            // 這裡可以添加上傳邏輯
+            const reader = new FileReader();
+            reader.onload = () => {
+                setPreview(reader.result);
+            };
+            reader.readAsDataURL(selectedFile);
+            //
+        }
+      }
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         // 先判斷 confirm password 是否與 password 相同
@@ -80,6 +102,7 @@ function Register() {
             alert('The passwords do not match, please double-check.');
             return;
         }
+        
         navigate('/register_bank', { state: { registerData: formData } });
     };
     return (
@@ -173,6 +196,37 @@ function Register() {
                         handleChange={handleChange}
                         required
                     />
+                    <div className={styles.avatarDiv}>
+                        <label className={styles.labelInput}>*Personal Photo</label>
+                        <input
+                            style={{ display: 'none' }}
+                            id="avatarInput" 
+                            type="file"
+                            accept="image/*"
+                            onChange={handleImageChange}
+                            />
+                        <button
+                            className={styles.avatarButton}
+                            type="button"
+                            onClick={() => document.getElementById("avatarInput").click()}>
+                                {/* <div className={styles.avatarImage}/>
+                                <span className={styles.plusIcon}>+</span> */}
+                                {preview ? (
+                                    <img
+                                        src={preview}
+                                        alt="Avatar Preview"
+                                        className={styles.avatarImage}
+                                    />
+                                ) : (
+                                    <div>
+                                        <div 
+                                            alt="Avatar Preview"
+                                            className={styles.avatarImage} />
+                                        <span className={styles.plusIcon}>+</span>
+                                    </div> 
+                                )}
+                        </button>
+                    </div>
                     <button
                         type="submit"
                         className={styles.submitBtn}

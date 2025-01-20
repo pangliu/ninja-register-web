@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .layoutContainer {
     display: grid;
 }
@@ -81,6 +85,42 @@
     font-size: 18px;
     width: 90%;
     margin-left: 10px;
+}
+
+.avatarDiv {
+    display: grid;
+}
+.avatarButton {
+    border: 1px solid #bbbbbb;
+    background: none;
+    border-radius: 5px;
+    width: 80px;
+    height: 80px;
+    padding: 3px;
+    margin-top: 10px;
+    overflow: hidden;
+    position: relative;
+}
+.avatarImage{
+    background-image: url('../../assets/bg_avatar.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    object-fit: cover;
+    width: 72px;
+    height: 72px;
+    
+}
+
+.plusIcon{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* 校正中心點 */
+    color: #df4a3b; /* 加號顏色 */
+    font-size: 24px; /* 加號大小 */
+    font-weight: bold; /* 加號加粗 */
+    border-radius: 50%; /* 圓形背景 */
+    padding: 5px; /* 增加內距 */
 }
 
 .submitBtn {
