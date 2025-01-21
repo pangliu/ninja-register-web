@@ -196,36 +196,41 @@ function Register() {
                         handleChange={handleChange}
                         required
                     />
+                    <label className={styles.labelInput}>*Personal Photo</label>
                     <div className={styles.avatarDiv}>
-                        <label className={styles.labelInput}>*Personal Photo</label>
-                        <input
-                            style={{ display: 'none' }}
-                            id="avatarInput" 
-                            type="file"
-                            accept="image/*"
-                            onChange={handleImageChange}
-                            />
-                        <button
-                            className={styles.avatarButton}
-                            type="button"
-                            onClick={() => document.getElementById("avatarInput").click()}>
-                                {/* <div className={styles.avatarImage}/>
-                                <span className={styles.plusIcon}>+</span> */}
-                                {preview ? (
-                                    <img
-                                        src={preview}
-                                        alt="Avatar Preview"
-                                        className={styles.avatarImage}
-                                    />
-                                ) : (
-                                    <div>
-                                        <div 
+                        <div className={styles.avatarTitle}>
+                            <input
+                                style={{ display: 'none' }}
+                                id="avatarInput" 
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageChange}
+                                />
+                            <button
+                                className={styles.avatarButton}
+                                type="button"
+                                onClick={() => document.getElementById("avatarInput").click()}>
+                                    {preview ? (
+                                        <img
+                                            src={preview}
                                             alt="Avatar Preview"
-                                            className={styles.avatarImage} />
-                                        <span className={styles.plusIcon}>+</span>
-                                    </div> 
-                                )}
-                        </button>
+                                            className={styles.avatarImage}
+                                        />
+                                    ) : (
+                                        <div>
+                                            <div 
+                                                alt="Avatar Preview"
+                                                className={styles.avatarImage} />
+                                            <span className={styles.plusIcon}>+</span>
+                                        </div> 
+                                    )}
+                            </button>
+                        </div>
+                        <div className={styles.avatarDiscript}>
+                            <span className={styles.contentTextBlack}>submit a</span>
+                            <span className={styles.contentTextRed}> clear</span>
+                            <span className={styles.contentTextBlack}> personal photo</span>
+                        </div>
                     </div>
                     <button
                         type="submit"

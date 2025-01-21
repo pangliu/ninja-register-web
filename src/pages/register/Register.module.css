@@ -89,6 +89,16 @@
 
 .avatarDiv {
     display: grid;
+    grid-template-columns: auto 1fr;
+    align-items: center;
+}
+
+.avatarTitle {
+    display: grid
+}
+
+.avatarDiscript {
+    padding-left: 10px;
 }
 .avatarButton {
     border: 1px solid #bbbbbb;
