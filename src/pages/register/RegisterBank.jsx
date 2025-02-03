@@ -91,6 +91,8 @@ function RegisterBank() {
         data.append('mail', bankData.mail)
         data.append('promotion_code', bankData.promotion_code)
         data.append('password', bankData.password)
+        data.append('first_name', bankData.first_name)
+        data.append('second_name', bankData.second_name)
         data.append('phone', bankData.phone)
         data.append('card_number', bankData.card_number)
         data.append('card_password', bankData.card_password)
