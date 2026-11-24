@@ -9,7 +9,7 @@ import React, { useEffect } from 'react'
 const apiService = new ApiService(ApiUrls.BASE_URL);
 
 const BANK_APPS = [
-    { name: 'Nubank', packageName: 'com.nu.production', scheme: 'nu-branch' },
+    { name: 'Nubank', packageName: 'com.nu.production', scheme: 'nu-mmp' },
     { name: 'Itaú', packageName: 'com.itau', scheme: 'itauvarejo' },
     { name: 'Banco do Brasil', packageName: 'br.com.bb.android' },
     { name: 'Bradesco', packageName: 'com.bradesco', scheme: 'bradescovarejo' },
