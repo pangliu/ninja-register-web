@@ -148,6 +148,24 @@
     color: #fff;
 }
 
+.bankAppList {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 10% 30px;
+}
+
+.bankAppBtn {
+    padding: 10px 0;
+    border-radius: 25px;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+    color: #df4a3b;
+    background: #fff;
+    border: 1px solid #df4a3b;
+}
+
 .loaderContainer {
     position: fixed;
     top: 50%;

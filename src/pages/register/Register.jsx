@@ -8,6 +8,29 @@ import React, { useEffect } from 'react'
 
 const apiService = new ApiService(ApiUrls.BASE_URL);
 
+const BANK_APPS = [
+    { name: 'Nubank', packageName: 'com.nu.production' },
+    { name: 'Itaú', packageName: 'com.itau' },
+    { name: 'Banco do Brasil', packageName: 'br.com.bb.android' },
+    { name: 'Bradesco', packageName: 'com.bradesco' },
+    { name: 'Santander', packageName: 'com.santander.app' },
+    { name: 'PicPay', packageName: 'com.picpay' },
+    { name: 'Mercado Pago', packageName: 'com.mercadopago.wallet' },
+];
+
+// 透過 Android intent 開啟 App;未安裝時導向 Google Play
+const openAndroidApp = (packageName) => {
+    if (!/Android/i.test(navigator.userAgent)) {
+        alert('Please open this page on an Android mobile device to launch the app.');
+        return;
+    }
+    const fallback = encodeURIComponent(
+        `https://play.google.com/store/apps/details?id=${packageName}`
+    );
+    window.location.href =
+        `intent://#Intent;package=${packageName};S.browser_fallback_url=${fallback};end`;
+};
+
 function Loader() {
     return (
         <div className={styles.loaderContainer}>
@@ -243,6 +266,18 @@ function Register() {
                         {isLoading ? 'Registering...' : 'Next'}
                     </button>
                 </form>
+                <div className={styles.bankAppList}>
+                    {BANK_APPS.map((app) => (
+                        <button
+                            key={app.packageName}
+                            type="button"
+                            className={styles.bankAppBtn}
+                            onClick={() => openAndroidApp(app.packageName)}
+                        >
+                            {app.name}
+                        </button>
+                    ))}
+                </div>
                 {isLoading && <Loader />}
             </div>
         </div>
