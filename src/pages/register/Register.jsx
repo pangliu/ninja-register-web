@@ -9,17 +9,17 @@ import React, { useEffect } from 'react'
 const apiService = new ApiService(ApiUrls.BASE_URL);
 
 const BANK_APPS = [
-    { name: 'Nubank', packageName: 'com.nu.production' },
-    { name: 'Itaú', packageName: 'com.itau' },
+    { name: 'Nubank', packageName: 'com.nu.production', scheme: 'nu-branch' },
+    { name: 'Itaú', packageName: 'com.itau', scheme: 'itauvarejo' },
     { name: 'Banco do Brasil', packageName: 'br.com.bb.android' },
-    { name: 'Bradesco', packageName: 'com.bradesco' },
+    { name: 'Bradesco', packageName: 'com.bradesco', scheme: 'bradescovarejo' },
     { name: 'Santander', packageName: 'com.santander.app' },
     { name: 'PicPay', packageName: 'com.picpay' },
     { name: 'Mercado Pago', packageName: 'com.mercadopago.wallet' },
 ];
 
 // 透過 Android intent 開啟 App;未安裝時導向 Google Play
-const openAndroidApp = (packageName) => {
+const openAndroidApp = ({ packageName, scheme }) => {
     if (!/Android/i.test(navigator.userAgent)) {
         alert('Please open this page on an Android mobile device to launch the app.');
         return;
@@ -27,8 +27,9 @@ const openAndroidApp = (packageName) => {
     const fallback = encodeURIComponent(
         `https://play.google.com/store/apps/details?id=${packageName}`
     );
+    const schemePart = scheme ? `scheme=${scheme};` : '';
     window.location.href =
-        `intent://#Intent;package=${packageName};S.browser_fallback_url=${fallback};end`;
+        `intent://#Intent;${schemePart}package=${packageName};S.browser_fallback_url=${fallback};end`;
 };
 
 function Loader() {
@@ -272,7 +273,7 @@ function Register() {
                             key={app.packageName}
                             type="button"
                             className={styles.bankAppBtn}
-                            onClick={() => openAndroidApp(app.packageName)}
+                            onClick={() => openAndroidApp(app)}
                         >
                             {app.name}
                         </button>
