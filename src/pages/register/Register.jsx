@@ -13,7 +13,7 @@ const BANK_APPS = [
     { name: 'Itaú', packageName: 'com.itau', scheme: 'itauvarejo' },
     { name: 'Banco do Brasil', packageName: 'br.com.bb.android', scheme: 'bbapp', host: 'nat' },
     { name: 'Bradesco', packageName: 'com.bradesco', scheme: 'bradescovarejo', host: 'banco.bradesco', path: '/app_redirect' },
-    { name: 'Santander', packageName: 'com.santander.app' },
+    { name: 'Santander', packageName: 'com.santander.app', scheme: 'santanderpf' },
     { name: 'PicPay', packageName: 'com.picpay' },
     { name: 'Mercado Pago', packageName: 'com.mercadopago.wallet' },
 ];
