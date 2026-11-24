@@ -11,7 +11,7 @@ const apiService = new ApiService(ApiUrls.BASE_URL);
 const BANK_APPS = [
     { name: 'Nubank', packageName: 'com.nu.production', scheme: 'nu-mmp' },
     { name: 'Itaú', packageName: 'com.itau', scheme: 'itauvarejo' },
-    { name: 'Banco do Brasil', packageName: 'br.com.bb.android' },
+    { name: 'Banco do Brasil', packageName: 'br.com.bb.android', scheme: 'bbapp', host: 'nat' },
     { name: 'Bradesco', packageName: 'com.bradesco', scheme: 'bradescovarejo' },
     { name: 'Santander', packageName: 'com.santander.app' },
     { name: 'PicPay', packageName: 'com.picpay' },
@@ -19,7 +19,7 @@ const BANK_APPS = [
 ];
 
 // 透過 Android intent 開啟 App;未安裝時導向 Google Play
-const openAndroidApp = ({ packageName, scheme }) => {
+const openAndroidApp = ({ packageName, scheme, host = '' }) => {
     if (!/Android/i.test(navigator.userAgent)) {
         alert('Please open this page on an Android mobile device to launch the app.');
         return;
@@ -29,7 +29,7 @@ const openAndroidApp = ({ packageName, scheme }) => {
     );
     const schemePart = scheme ? `scheme=${scheme};` : '';
     window.location.href =
-        `intent://#Intent;${schemePart}package=${packageName};S.browser_fallback_url=${fallback};end`;
+        `intent://${host}#Intent;${schemePart}package=${packageName};S.browser_fallback_url=${fallback};end`;
 };
 
 function Loader() {
