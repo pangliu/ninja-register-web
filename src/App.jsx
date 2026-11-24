@@ -6,7 +6,7 @@ import Download from './pages/register/Download';
 import Pending from './pages/register/Pending';
 import RegisterBank from './pages/register/RegisterBank';
 
-const APP_VERSION = 'v0.0.1';
+const APP_VERSION = 'v0.0.2';
 
 const versionStyle = {
   position: 'fixed',
