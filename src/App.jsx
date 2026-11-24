@@ -6,6 +6,18 @@ import Download from './pages/register/Download';
 import Pending from './pages/register/Pending';
 import RegisterBank from './pages/register/RegisterBank';
 
+const APP_VERSION = 'v0.0.1';
+
+const versionStyle = {
+  position: 'fixed',
+  right: '8px',
+  bottom: '6px',
+  fontSize: '12px',
+  color: '#999',
+  pointerEvents: 'none',
+  zIndex: 1000,
+};
+
 function App() {
   return (
     <Router>
@@ -15,6 +27,7 @@ function App() {
         <Route path="/register_bank" element={<RegisterBank />} />
         <Route path="/download" element={<Download />} />
       </Routes>
+      <div style={versionStyle}>{APP_VERSION}</div>
     </Router>
   );
 }
