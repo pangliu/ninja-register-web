@@ -15,7 +15,7 @@ const BANK_APPS = [
     { name: 'Bradesco', packageName: 'com.bradesco', scheme: 'bradescovarejo', host: 'banco.bradesco', path: '/app_redirect' },
     { name: 'Santander', packageName: 'com.santander.app', scheme: 'santanderpf' },
     { name: 'PicPay', packageName: 'com.picpay', scheme: 'picpay' },
-    { name: 'Mercado Pago', packageName: 'com.mercadopago.wallet' },
+    { name: 'Mercado Pago', packageName: 'com.mercadopago.wallet', scheme: 'mercadopago', host: 'home' },
 ];
 
 // 透過 Android intent 開啟 App;未安裝時導向 Google Play
